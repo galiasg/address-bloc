@@ -1,5 +1,4 @@
-# #1
- require_relative "../models/address_book"
+require_relative "../models/address_book"
 
  class MenuController
    attr_accessor :address_book
@@ -21,8 +20,7 @@
  # #3
      selection = gets.to_i
      puts "You picked #{selection}"
-
- case selection
+   case selection
      when 1
        system "clear"
        view_all_entries
@@ -63,8 +61,9 @@
 
    def read_csv
    end
-   def create_entry
- # #11
+ end
+    def create_entry
+      #11
      system "clear"
      puts "New AddressBloc Entry"
  # #12
@@ -81,7 +80,7 @@
      system "clear"
      puts "New entry created"
    end
-   def view_all_entries
+  def view_all_entries
  # #14
      @address_book.entries.each do |entry|
      system "clear"
@@ -92,8 +91,9 @@
 
      system "clear"
      puts "End of entries"
+   end
 
-     def entry_submenu(entry)
+   def entry_submenu(entry)
  # #16
      puts "n - next entry"
      puts "d - delete entry"
@@ -119,6 +119,3 @@
        entries_submenu(entry)
      end
    end
-
-   end
- end
