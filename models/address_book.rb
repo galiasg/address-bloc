@@ -23,5 +23,4 @@ require_relative "entry.rb"
    def remove_entry(entry)
     @entries.delete(entry)
   end
-
  end
