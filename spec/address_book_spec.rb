@@ -44,8 +44,18 @@ RSpec.describe AddressBook do
        # Check the size of the entries in AddressBook
        expect(book_size).to eql 5
       end
+      end
 
-   end
+       context ".import_from_csv" do
+     it "imports the correct number of entries" do
+ # #3
+       book.import_from_csv("entries_2.csv")
+       book_size = book.entries.size
+
+       # Check the size of the entries in AddressBook
+       expect(book_size).to eql 3
+      end
+      end
 
      context ".remove_entry" do
       it "removes only one entry from the address book" do
