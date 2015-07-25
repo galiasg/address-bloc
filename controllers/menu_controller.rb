@@ -70,15 +70,25 @@ require_relative "../models/address_book"
   end
 
 #assignment
+ #  def view_entry_number_n
+ #    @address_book.entries.each do |entry|
+ #      puts "what entry number should I retrive?"
+ #      i = gets.chomp.to_i
+ #      n = @address_book.entries.at(i)
+ #      p "the #{i} element in the array is #{n}"
+ #   end
+ # end
+#end of assignment
+#assignment array, It's going to ask for a number for every time there is an Entry.
   def view_entry_number_n
-    @address_book.entries.each do |entry|
+    @address_book.entries(0)
       puts "what entry number should I retrive?"
       i = gets.chomp.to_i
       n = @address_book.entries.at(i)
       p "the #{i} element in the array is #{n}"
-   end
- end
-#end of assignment
+    end
+  end
+
 
    def create_entry
     # #11
@@ -129,5 +139,5 @@ require_relative "../models/address_book"
        puts "#{selection} is not a valid input"
        entries_submenu(entry)
      end
-   end
- end
+end
+
