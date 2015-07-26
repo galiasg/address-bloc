@@ -82,7 +82,7 @@ require_relative '../models/address_book.rb'
 
      end
 
-     it "imports the 5th entry" do
+    it "imports the 5th entry" do
        book.import_from_csv("entries.csv")
        # Check the fifth entry
        entry_five = book.entries[4]
@@ -90,6 +90,37 @@ require_relative '../models/address_book.rb'
 
      end
 
+     #entries from entries_2context "#import_from_csv" do
+    it "imports the correct number of entries" do
+    book.import_from_csv("entries_2.csv")
+    book_size = book.entries.size
+    expect(book_size).to eql 3
+    end
+
+
+    it "imports the 1st entry" do
+    book.import_from_csv("entries_2.csv")
+#   # Check the first entry
+    entry_one = book.entries[0]
+    check_entry(entry_one, "Billie", "415-555-4854", "billie@blocmail.com")
+    end
+
+    it "imports the 2nd entry" do
+    book.import_from_csv("entries_2.csv")
+#   # Check the second entry
+    entry_two = book.entries[1]
+    check_entry(entry_two, "Martha", "415-555-3660", "martha@blocmail.com")
+    end
+
+    it "imports the 3rd entry" do
+      book.import_from_csv("entries_2.csv")
+#   # Check the third entry
+    entry_three = book.entries[2]
+    check_entry(entry_three, "Rose", "415-555-5415", "rose@blocmail.com")
+    end
+  end
+
+#remove entry
      context ".remove_entry" do
       it "removes only one entry from the address book" do
       book = AddressBook.new
@@ -99,5 +130,4 @@ require_relative '../models/address_book.rb'
       expect(book.entries.index(entry)).to be nil
       end
     end
-  end
  end
