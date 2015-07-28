@@ -48,6 +48,15 @@ def binary_search(name)
      return nil
    end
 
+def iterative_search(name)
+  @entries.each do |entry|
+    if entry.name == name
+      return entry
+    end
+  end
+  return nil
+end
+
    def remove_entry(entry)
     @entries.delete(entry)
   end
