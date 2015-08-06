@@ -87,22 +87,33 @@ require_relative "../models/address_book"
 
    def read_csv
    end
+
+  def destroy
+    @address_book.entries = Array.new
+    puts "database has been deleted"
+  end
+
    def entry_submenu(entry)
  # #16
      puts "n - next entry"
      puts "d - delete entry"
      puts "e - edit this entry"
      puts "m - return to main menu"
+     puts "destroy - delete database"
 
  # #17
-     selection = gets.chomp
+    selection = gets.chomp
 
-     case selection
+    case selection
  # #18
-     when "n"
+    when "n"
  # #19
-     when "d"
-     when "e"
+    when "d"
+    when "destroy"
+      system "clear"
+      destroy
+      main_menu
+    when "e"
  # #20
      when "m"
        system "clear"
